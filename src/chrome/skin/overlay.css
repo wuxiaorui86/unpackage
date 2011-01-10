@@ -1,0 +1,12 @@
+@import url(chrome://global/skin/);
+
+/*common*/
+
+/*options window*/
+tree[id="rulesTree"],
+tree[id="hostsTree"]{
+    min-height:50px;
+}
+#unpackage-options-self button {
+    text-align:center;
+}

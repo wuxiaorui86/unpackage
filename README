@@ -1,0 +1,13 @@
+-src //source file
+    -chrome
+        -content
+        -locale
+        -skin
+    -defaults
+        -preference
+    chrome.manifest
+    install.rdf
+-build //binary file
+
+README //it's me
+build.sh //bash script for build 

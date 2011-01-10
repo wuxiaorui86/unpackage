@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="chrome://unpackage/skin/overlay.css" type="text/css"?>
+<!DOCTYPE overlay SYSTEM "chrome://unpackage/locale/overlay.dtd">
+<overlay id="unpackage-overlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+    <stringbundleset id="stringbundleset">
+        <stringbundle id="unpackage-strings" src="chrome://unpackage/locale/overlay.properties"/>
+    </stringbundleset>
+
+    <statusbar id="status-bar">
+        <statusbarpanel id="unpackage-statusbar-label" label="UnPackage" context="unpackage-main-menupopup" onclick="unpackage.onSBClick(event);" ondbclick="unpackage.onSBClick(event);"/>
+        <popupset id="unpackage-popupset">
+            <menupopup id="unpackage-main-menupopup">
+                <menuitem id="unpackage-menuitem-home" label="&unpackage.context.home;" />
+                <menuseparator/>
+                <menuitem id="unpackage-menuitem-autorun" label="&unpackage.context.autorun;" disabled="true" />
+                <menuitem id="unpackage-menuitem-enable" label="&unpackage.context.enable;" />
+                <menuitem id="unpackage-menuitem-disable" label="&unpackage.context.disable;" />
+                <!--<menuseparator/>
+                <menu id="unpackage-menuitem-conffile" label="&unpackage.context.conffile;" />
+                    <menupopup id="unpackage-conffile" sortDirection="ascending" />
+                </menu>
+                <menuseparator/>-->
+                <menuseparator/>
+                <menuitem id="unpackage-menuitem-options" label="&unpackage.context.options;" oncommand="unpackage.onOptionsDialog(event);"/>
+            </menupopup>
+        </popupset>
+
+    </statusbar>
+    <!--include script files-->
+    <script type="application/javascript" src="utils.js"/>
+    <script type="application/javascript" src="overlay.js"/>
+</overlay>
