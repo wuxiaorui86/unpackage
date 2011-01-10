@@ -1,4 +1,4 @@
--src //source file
+-src //source files
     -chrome
         -content
         -locale
@@ -7,7 +7,11 @@
         -preference
     chrome.manifest
     install.rdf
--build //binary file
+    Makefile //GNUmake for src
+-bin //binary and build files
+    -build //template build files
+    -unpackage.xpi binary file
 
+build.sh //bash script for easy build 
+Makefile //GNUmake for all
 README //it's me
-build.sh //bash script for build 
