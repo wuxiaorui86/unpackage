@@ -5,7 +5,7 @@ extension_name := unpackage
 extension_uuid := {5b65531c-181c-11e0-9c47-001c259dab32}
 
 # The name of the profile dir where the extension can be installed.
-profile_dir := m6itouhc.default 
+profile_dir := m6itouhc.default
 
 # The zip application to be used.
 ZIP := zip
@@ -45,6 +45,7 @@ chrome_manifest := chrome.manifest
 # This builds the extension XPI file.
 .PHONY: all
 all: $(xpi_file)
+	@echo $(os_type)
 	@echo
 	@echo "Build finished successfully."
 	@echo

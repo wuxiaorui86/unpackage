@@ -16,6 +16,8 @@
                 <menuitem id="unpackage-menuitem-autorun" label="&unpackage.context.autorun;" disabled="true" />
                 <menuitem id="unpackage-menuitem-enable" label="&unpackage.context.enable;" />
                 <menuitem id="unpackage-menuitem-disable" label="&unpackage.context.disable;" />
+                <menuseparator/>
+                <menuitem id="unpackage-menuitem-tbmode" label="&unpackage.context.tbmode;" />
                 <!--<menuseparator/>
                 <menu id="unpackage-menuitem-conffile" label="&unpackage.context.conffile;" />
                     <menupopup id="unpackage-conffile" sortDirection="ascending" />

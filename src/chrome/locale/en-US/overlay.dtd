@@ -12,7 +12,11 @@
 <!ENTITY unpackage.context.enable "Enable">
 <!ENTITY unpackage.context.disable "Disable">
 <!ENTITY unpackage.context.options "Options">
+<!ENTITY unpackage.context.tbmode "Taobao Mode">
 <!ENTITY unpackage.context.conffile "Configure File">
+
+<!ENTITY unpackage.tbmode.enabled "Enabled">
+<!ENTITY unpackage.tbmode.disabled "Disabled">
 
 <!ENTITY unpackage.options.label "UnPackage Options">
 <!ENTITY unpackage.menubar.file.label "File">
