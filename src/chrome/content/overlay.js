@@ -42,10 +42,6 @@ var unpackage = {
             window.openDialog(xulFile, "", "minimizable,dialog,chrome,resizable=yes" + (args?(","+args):""), parms).focus();
         }
     },
-    onLoad: function() {
-        this.initialized = true;
-        this.strings = document.getElementById("unpackage-strings");
-    },
     onMenuItemCommand: function(e) {
         var promptService = Components.classes["@mozilla.org/embedcomp/prompt-service;1"]
         .getService(Components.interfaces.nsIPromptService);
@@ -55,6 +51,19 @@ var unpackage = {
     onToolbarButtonCommand: function(e) {
         // just reuse the function above.  you can change this, obviously!
         unpackage.onMenuItemCommand(e);
+    },
+    onNginx:function(e){
+
+    },
+    onUnpacker:function(e){
+
+    },
+    onConf:function(e){
+
+    },
+    onLoad: function() {
+        this.initialized = true;
+        this.strings = document.getElementById("unpackage-strings");
     }
 };
 

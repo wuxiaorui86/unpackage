@@ -9,14 +9,16 @@
 
 <!ENTITY unpackage.context.home "UnPackage Home">
 <!ENTITY unpackage.context.autorun "Autorun">
-<!ENTITY unpackage.context.enable "Enable">
-<!ENTITY unpackage.context.disable "Disable">
 <!ENTITY unpackage.context.options "Options">
-<!ENTITY unpackage.context.tbmode "Taobao Mode">
-<!ENTITY unpackage.context.conffile "Configure File">
+<!ENTITY unpackage.context.rules "Rules">
 
-<!ENTITY unpackage.tbmode.enabled "Enabled">
-<!ENTITY unpackage.tbmode.disabled "Disabled">
+<!ENTITY unpackage.context.unpacker "UnPacker">
+<!ENTITY unpackage.unpacker.enabled "Enabled">
+<!ENTITY unpackage.unpacker.disabled "Disabled">
+
+<!ENTITY unpackage.context.nginx "Nginx Spliter">
+<!ENTITY unpackage.nginx.enabled "Enabled">
+<!ENTITY unpackage.nginx.disabled "Disabled">
 
 <!ENTITY unpackage.options.label "UnPackage Options">
 <!ENTITY unpackage.menubar.file.label "File">
