@@ -54,9 +54,9 @@ all: $(xpi_file)
 .PHONY: clean
 clean:
 	@rm -rf $(build_dir)/*
-	#@rm -f $(xpi_file)
 	@echo "Cleanup is done."
 
+#@rm -f $(xpi_file)
 # The includes are added after the targets because we want this file to contain
 # the default (first) target.
 include chrome/Makefile.in
