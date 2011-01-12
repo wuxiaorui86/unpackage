@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:em="http://www.mozilla.org/2004/em-rdf#">
+    <Description about="urn:mozilla:install-manifest">
+        <em:id>{5b65531c-181c-11e0-9c47-001c259dab32}</em:id>
+        <em:name>UnPackage</em:name>
+        <em:version>1.0.0</em:version>
+        <em:creator>TaobaoUED</em:creator>
+        <em:developer>Yulin Ding</em:developer>
+        <em:contributor></em:contributor>
+        <em:description>unpackage static resource concated by ant or nginx concat handler</em:description>
+        <em:homepageURL>http://www.cheshirecat.cn</em:homepageURL>
+        <em:updateURL><![CDATA[https://www.cheshirecat.cn/unpackage/update.rdf]]></em:updateURL>
+        <em:aboutURL>chrome://unpackage/content/about.xul</em:aboutURL>
+        <em:optionsURL>chrome://unpackage/content/options.xul</em:optionsURL>
+        <em:type>2</em:type> <!--type=extension-->
+
+        <em:targetApplication>
+            <Description>
+                <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id> <!-- Firefox -->
+                <em:minVersion>3.6</em:minVersion>
+                <em:maxVersion>4.0.*</em:maxVersion>
+            </Description>
+        </em:targetApplication>
+    </Description>
+</RDF>

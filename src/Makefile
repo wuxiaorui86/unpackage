@@ -53,8 +53,8 @@ all: $(xpi_file)
 # This cleans all temporary files and directories created by 'make'.
 .PHONY: clean
 clean:
-	@rm -rf $(build_dir)
-	@rm -f $(xpi_file)
+	@rm -rf $(build_dir)/*
+	#@rm -f $(xpi_file)
 	@echo "Cleanup is done."
 
 # The includes are added after the targets because we want this file to contain
