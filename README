@@ -9,7 +9,7 @@
     install.rdf
     Makefile //GNUmake for src
 -bin //binary and build files
-    -build //template build files
+    -build //temp build files
     -unpackage.xpi binary file
 
 build.sh //bash script for easy build 
