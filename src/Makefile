@@ -5,7 +5,7 @@ extension_name := unpackage
 extension_uuid := {5b65531c-181c-11e0-9c47-001c259dab32}
 
 # The name of the profile dir where the extension can be installed.
-profile_dir := m6itouhc.default
+profile_dir := yq4d9av7.xuldev
 
 # The zip application to be used.
 ZIP := zip
@@ -42,6 +42,9 @@ install_rdf := install.rdf
 # The chrome.manifest file.
 chrome_manifest := chrome.manifest
 
+# The modules (JSM) dir.
+modules_dir := modules
+
 # This builds the extension XPI file.
 .PHONY: all
 all: $(xpi_file)
@@ -60,12 +63,14 @@ clean:
 # The includes are added after the targets because we want this file to contain
 # the default (first) target.
 include chrome/Makefile.in
+include modules/Makefile.in
 
 # The sources for the XPI file. Uses variables defined in the included
 # Makefiles.
 xpi_built := $(build_dir)/$(install_rdf) \
              $(build_dir)/$(chrome_manifest) \
-             $(chrome_jar_file)
+             $(chrome_jar_file) \
+             $(addprefix $(build_dir)/,$(modules_sources)) \
 
 xpi_built_no_dir := $(subst $(build_dir)/,,$(xpi_built))
 
@@ -83,6 +88,9 @@ $(xpi_file): $(build_dir) $(xpi_built)
 	@cd $(build_dir); $(ZIP) ../$(xpi_file) $(xpi_built_no_dir)
 	@echo "Creating XPI file. Done!"
 
+$(build_dir)/$(modules_dir)/%: $(modules_dir)/% $(build_dir)/$(modules_dir)
+	@cp -f $< $@
+
 $(build_dir)/%: %
 	@cp -f $< $@
 
@@ -90,4 +98,10 @@ $(build_dir):
 	@if [ ! -x $(build_dir) ]; \
   then \
     mkdir $(build_dir); \
+  fi
+
+$(build_dir)/$(modules_dir):
+	@if [ ! -x $(build_dir)/$(modules_dir) ]; \
+  then \
+    mkdir $(build_dir)/$(modules_dir); \
   fi

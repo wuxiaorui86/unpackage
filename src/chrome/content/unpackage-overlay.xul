@@ -8,14 +8,14 @@
     </stringbundleset>
 
     <statusbar id="status-bar">
-        <statusbarpanel id="unpackage-statusbar-label" label="UnPackage" context="unpackage-main-menupopup" onclick="unpackage.onSBClick(event);" ondbclick="unpackage.onSBClick(event);"/>
+        <statusbarpanel id="unpackage-statusbar-label" label="UnPackage" context="unpackage-main-menupopup" class="statusbarpanel-menu-iconic" onclick="unpackage.UI.onSBClick(event);" ondbclick="unpackage.UI.onSBClick(event);"/>
         <popupset id="unpackage-popupset">
             <menupopup id="unpackage-main-menupopup">
                 <menuitem id="unpackage-menuitem-home" label="&unpackage.context.home;" />
                 <menuseparator/>
                 <menuitem id="unpackage-menuitem-autorun" label="&unpackage.context.autorun;" disabled="true" />
                 <menuseparator/>
-                <menu id="unpackage-menuitem-unpacker" label="&unpackage.context.unpacker;" oncommand="unpackage.onUnpacker(event);">
+                <menu id="unpackage-menuitem-unpacker" label="&unpackage.context.unpacker;" oncommand="unpackage.UI.onUnpacker(event);">
                     <menupopup>
                         <menuitem id="unpackage-unpacker-enabled" label="&unpackage.unpacker.enabled;" type="radio" name="unpacker-status" />
                         <menuitem id="unpackage-unpacker-disabled" label="&unpackage.unpacker.disabled;" type="radio" name="unpacker-status" checked="true" />
@@ -27,19 +27,20 @@
                     </menupopup>
                 </menu>
                 <menuseparator/>
-                <menu id="unpackage-menuitem-nginx" label="&unpackage.context.nginx;" oncommand="unpackage.onNginx(event);">
+                <menu id="unpackage-menuitem-nginx" label="&unpackage.context.nginx;" oncommand="unpackage.UI.onNginx(event);">
                     <menupopup>
                         <menuitem id="unpackage-nginx-enabled" label="&unpackage.nginx.enabled;" type="radio" name="nginx-status" />
                         <menuitem id="unpackage-nginx-disabled" label="&unpackage.nginx.disabled;" type="radio" name="nginx-status" checked="true" />
                     </menupopup>
                 </menu>
                 <menuseparator/>
-                <menuitem id="unpackage-menuitem-options" label="&unpackage.context.options;" oncommand="unpackage.onOptionsDialog(event);"/>
+                <menuitem id="unpackage-menuitem-options" label="&unpackage.context.options;" oncommand="unpackage.UI.onOptionsDialog(event);"/>
             </menupopup>
         </popupset>
 
     </statusbar>
     <!--include script files-->
-    <script type="application/x-javascript" src="utils.js"/>
-    <script type="application/x-javascript" src="overlay.js"/>
+    <script src="utils.js"/>
+    <script src="overlay.js"/>
+    <script src="test.js"/>
 </overlay>

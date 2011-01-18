@@ -1,70 +1,38 @@
-var unpackage = {
-    findWindow:function(id) {
-        var windowManager =
-            Components.classes['@mozilla.org/appshell/window-mediator;1'].getService(Components.interfaces.nsIWindowMediator);
-        var win0 =
-            windowManager.getMostRecentWindow(id);
-
-        if (win0) {
-            var enumerator = windowManager.getEnumerator(null);
-            while (enumerator.hasMoreElements()) {
-                var win1 = enumerator.getNext();
-                var winID = win1.document.documentElement.id;
-                if (winID == "commonDialog" && win1.opener == win0)
-                    return win1;
-            }
-            return win0;
-        }
-        return null;
-    },
+unpackage.UI = {
     onOptionsDialog:function() {
-        this.onDialog("unpackage-options","chrome://unpackage/content/options.xul",null,null);
+        unpackage.Utils.onDialog('unpackage-options','chrome://unpackage/content/options.xul',null,null);
     },
     onSBClick:function(evt){
         evt.preventDefault();
         if (evt.button === 0) {
-            this.onDialog("unpackage-options","chrome://unpackage/content/options.xul",null,null);
+            unpackage.Utils.onDialog('unpackage-options','chrome://unpackage/content/options.xul',null,null);
         };
     },
-    onDialog:function(id,xulFile,args,parms,idToClose) {
-        var wnd = this.findWindow(id);
-        if (wnd) {
-            try {
-                wnd.focus();
-            }catch(e){
-                wnd.getAttentionWithCycleCount(4);
-            }
-        } else {
-            if (idToClose) {
-                var wnd = foxyproxy.findWindow(idToClose); 
-                wnd && wnd.close();
-            }
-            window.openDialog(xulFile, "", "minimizable,dialog,chrome,resizable=yes" + (args?(","+args):""), parms).focus();
-        }
-    },
-    onMenuItemCommand: function(e) {
-        var promptService = Components.classes["@mozilla.org/embedcomp/prompt-service;1"]
-        .getService(Components.interfaces.nsIPromptService);
-        promptService.alert(window, this.strings.getString("helloMessageTitle"),
-            this.strings.getString("helloMessage"));
-    },
-    onToolbarButtonCommand: function(e) {
-        // just reuse the function above.  you can change this, obviously!
-        unpackage.onMenuItemCommand(e);
-    },
     onNginx:function(e){
+        var target = e.target,status = target.id === 'unpackage-nginx-enabled' ? 1 : 0; 
 
+        switch(status) {
+            case 0:
+                break;
+            case 1:
+                break;
+            default:
+                break;
+        };
+
+        unpackageMod.Nginx.setStatus(status);
     },
     onUnpacker:function(e){
-
     },
     onConf:function(e){
-
     },
     onLoad: function() {
         this.initialized = true;
-        this.strings = document.getElementById("unpackage-strings");
+    },
+    onUnload:function(){
+        this.initialized = false;
     }
 };
 
-window.addEventListener("load", unpackage.onLoad, false);
+window.addEventListener("load", unpackage.UI.onLoad, false);
+window.addEventListener("unload", unpackage.UI.onUnload, false);

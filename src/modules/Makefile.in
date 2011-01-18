@@ -1,0 +1,1 @@
+modules_sources := $(wildcard $(modules_dir)/*.js)

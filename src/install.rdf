@@ -12,6 +12,7 @@
         <em:updateURL><![CDATA[https://www.cheshirecat.cn/unpackage/update.rdf]]></em:updateURL>
         <em:aboutURL>chrome://unpackage/content/about.xul</em:aboutURL>
         <em:optionsURL>chrome://unpackage/content/options.xul</em:optionsURL>
+        <!--<em:iconURL>chrome://unpackage/skin/firebug32.png</em:iconURL>-->
         <em:type>2</em:type> <!--type=extension-->
 
         <em:targetApplication>

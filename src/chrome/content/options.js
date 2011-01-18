@@ -7,10 +7,10 @@ unpackage.Options = {
     onSettings:function(){
 
     },
-    importSettings:function(){
+    onImport:function(){
 
     },
-    exportSettings:function(){
+    onExport:function(){
 
     }
 }
