@@ -56,7 +56,8 @@ all: $(xpi_file)
 # This cleans all temporary files and directories created by 'make'.
 .PHONY: clean
 clean:
-	@rm -rf $(build_dir)/*
+	@rm -rf $(build_dir)
+	@rm -f $(xpi_file)
 	@echo "Cleanup is done."
 
 #@rm -f $(xpi_file)
