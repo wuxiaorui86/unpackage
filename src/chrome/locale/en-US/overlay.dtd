@@ -11,6 +11,7 @@
 <!ENTITY unpackage.context.autorun "Autorun">
 <!ENTITY unpackage.context.options "Options">
 <!ENTITY unpackage.context.rules "Rules">
+<!ENTITY unpackage.context.test "Test">
 
 <!ENTITY unpackage.context.unpacker "UnPacker">
 <!ENTITY unpackage.unpacker.enabled "Enabled">

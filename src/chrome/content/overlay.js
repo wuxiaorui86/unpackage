@@ -15,8 +15,8 @@ unpackage.UI = {
     },
     onNginx:function(e){
         var target = e.target,status = target.id === 'unpackage-nginx-enabled' ? 1 : 0; 
-        unpackageMod.Nginx.setStatus(status);
-        this._observerService.notifyObservers(null,"xulschoolhello-test-topic","hello");
+        /*unpackageMod.Nginx.setStatus(status);
+        this._observerService.notifyObservers(null,"xulschoolhello-test-topic","hello");*/
     },
     onUnpacker:function(e){
     },

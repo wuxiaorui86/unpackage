@@ -35,6 +35,7 @@
                 </menu>
                 <menuseparator/>
                 <menuitem id="unpackage-menuitem-options" label="&unpackage.context.options;" oncommand="unpackage.UI.onOptionsDialog(event);"/>
+                <menuitem id="unpackage-menuitem-test" label="&unpackage.context.test;" oncommand="unpackage.Test.onTest(event);"/>
             </menupopup>
         </popupset>
 

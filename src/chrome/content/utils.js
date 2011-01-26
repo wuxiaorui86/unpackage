@@ -5,7 +5,7 @@ unpackage.Utils = {
     merge:function(source,target){
         
     },
-    getTopWindow:function(){
+    getWindow:function(){
         var ret = window.QueryInterface(Components.interfaces.nsIInterfaceRequestor)
                        .getInterface(Components.interfaces.nsIWebNavigation)
                        .QueryInterface(Components.interfaces.nsIDocShellTreeItem)
@@ -13,6 +13,9 @@ unpackage.Utils = {
                        .QueryInterface(Components.interfaces.nsIInterfaceRequestor)
                        .getInterface(Components.interfaces.nsIDOMWindow); 
         return ret;
+    },
+    getCurrentTab:function(){
+
     },
     findWindow:function(id) {
         var windowManager = Components.classes['@mozilla.org/appshell/window-mediator;1'].getService(Components.interfaces.nsIWindowMediator),
