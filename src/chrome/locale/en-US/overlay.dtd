@@ -1,54 +1,12 @@
-<!ENTITY unpackage.label "Your localized menuitem">
-<!ENTITY unpackageContext.label "Your Menuitem">
-<!ENTITY unpackageContext.accesskey "Y">
-<!ENTITY unpackageToolbarButton.label "Your Toolbar Button">
-<!ENTITY unpackageToolbarButton.tooltip "This is your toolbar button!">
-<!ENTITY unpackageSidebar.label "Your Sidebar">
-<!ENTITY unpackageToolbar.name  "example">
-<!ENTITY unpackageToolbar.label "This is an example toolbar. You can hide it under View &gt; toolbars &gt; &unpackageToolbar.name;">
+<!ENTITY unpackage.panel.unpackage "Unpackage">
 
-<!ENTITY unpackage.context.home "UnPackage Home">
-<!ENTITY unpackage.context.autorun "Autorun">
-<!ENTITY unpackage.context.options "Options">
-<!ENTITY unpackage.context.rules "Rules">
-<!ENTITY unpackage.context.test "Test">
-
-<!ENTITY unpackage.context.unpacker "UnPacker">
-<!ENTITY unpackage.unpacker.enabled "Enabled">
-<!ENTITY unpackage.unpacker.disabled "Disabled">
-
-<!ENTITY unpackage.context.nginx "Nginx Spliter">
-<!ENTITY unpackage.nginx.enabled "Enabled">
-<!ENTITY unpackage.nginx.disabled "Disabled">
-
-<!ENTITY unpackage.options.label "UnPackage Options">
-<!ENTITY unpackage.menubar.file.label "File">
-<!ENTITY unpackage.menubar.help.label "Help">
-<!ENTITY unpackage.createrule.label "Add New Rule">
-<!ENTITY unpackage.settings.label "Edit Selection">
-<!ENTITY unpackage.importsettings.label "Import Settings">
-<!ENTITY unpackage.exportsettings.label "Export Settings">
-<!ENTITY unpackage.close.label "Close">
-<!ENTITY unpackage.manual.label "Manual">
+<!ENTITY unpackage.tools.label "Tools">
+<!ENTITY unpackage.options.label "Options">
+<!ENTITY unpackage.options.tip "global settings">
+<!ENTITY unpackage.import.label "Import">
+<!ENTITY unpackage.import.tip "import settings">
+<!ENTITY unpackage.export.label "Export">
+<!ENTITY unpackage.export.tip "export settings">
+<!ENTITY unpackage.help.label "Help">
+<!ENTITY unpackage.help.tip "online manual">
 <!ENTITY unpackage.about.label "About">
-<!ENTITY unpackage.deleteselection.label "Delete Selection">
-
-<!ENTITY unpackage.tab.rules.label "Filter Rules">
-<!ENTITY unpackage.tab.hosts.label "Hosts">
-<!ENTITY unpackage.tab.global.label "Global Settings">
-
-
-<!ENTITY unpackage.rules.name.label "Rule Name">
-<!ENTITY unpackage.rules.type.label "Filter Type">
-<!ENTITY unpackage.rules.notes.label "Notes">
-
-<!ENTITY unpackage.hosts.enabled.label "Enabled">
-<!ENTITY unpackage.hosts.domain.label "Domain">
-<!ENTITY unpackage.hosts.ip.label "IP Address">
-
-
-<!ENTITY unpackage.enablehosts.label "Enable Selection">
-<!ENTITY unpackage.disablehosts.label "Disable Selection">
-<!ENTITY unpackage.edithosts.label "Edit Selection">
-<!ENTITY unpackage.addhosts.label "Add New Host">
-<!ENTITY unpackage.deletehosts.label "Delete Selection">

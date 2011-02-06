@@ -45,6 +45,12 @@ chrome_manifest := chrome.manifest
 # The modules (JSM) dir.
 modules_dir := modules
 
+# The defaults dir.
+defaults_dir := defaults
+
+# The preferences dir.
+preferences_dir := $(defaults_dir)/preferences
+
 # This builds the extension XPI file.
 .PHONY: all
 all: $(xpi_file)
@@ -72,6 +78,7 @@ xpi_built := $(build_dir)/$(install_rdf) \
              $(build_dir)/$(chrome_manifest) \
              $(chrome_jar_file) \
              $(addprefix $(build_dir)/,$(modules_sources)) \
+             $(build_dir)/$(preferences_dir)/$(extension_name).js
 
 xpi_built_no_dir := $(subst $(build_dir)/,,$(xpi_built))
 
@@ -91,6 +98,25 @@ $(xpi_file): $(build_dir) $(xpi_built)
 
 $(build_dir)/$(modules_dir)/%: $(modules_dir)/% $(build_dir)/$(modules_dir)
 	@cp -f $< $@
+
+$(build_dir)/$(preferences_dir)/%: \
+  $(preferences_dir)/% $(build_dir)/$(preferences_dir)
+	@cp -f $< $@
+
+$(build_dir)/$(defaults_dir)/%: $(defaults_dir)/% $(build_dir)/$(defaults_dir)
+	@cp -f $< $@
+
+$(build_dir)/$(preferences_dir): $(build_dir)/$(defaults_dir)
+	@if [ ! -x $(build_dir)/$(preferences_dir) ]; \
+  then \
+    mkdir $(build_dir)/$(preferences_dir); \
+  fi
+
+$(build_dir)/$(defaults_dir):
+	@if [ ! -x $(build_dir)/$(defaults_dir) ]; \
+  then \
+    mkdir $(build_dir)/$(defaults_dir); \
+  fi
 
 $(build_dir)/%: %
 	@cp -f $< $@

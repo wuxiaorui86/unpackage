@@ -1,5 +1,4 @@
-/*global*/
-pref("extensions.firebug.unpackage.enableSites",false)
+pref("extensions.firebug.unpackage.enableSites",false);
 /*options*/
 pref("extensions.firebug.unpackage.option.switch",false)
 pref("extensions.firebug.unpackage.option.split",false)

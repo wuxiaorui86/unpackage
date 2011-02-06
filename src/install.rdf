@@ -3,7 +3,7 @@
     <Description about="urn:mozilla:install-manifest">
         <em:id>{5b65531c-181c-11e0-9c47-001c259dab32}</em:id>
         <em:name>UnPackage</em:name>
-        <em:version>1.0.0</em:version>
+        <em:version>1.0a1</em:version>
         <em:creator>TaobaoUED</em:creator>
         <em:developer>Yulin Ding</em:developer>
         <em:contributor></em:contributor>

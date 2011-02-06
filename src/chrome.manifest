@@ -1,6 +1,5 @@
-content unpackage jar:chrome/unpackage.jar!/content/
+content unpackage jar:chrome/unpackage.jar!/content/ xpcnativewrappers=no
 skin unpackage classic/1.0 jar:chrome/unpackage.jar!/skin/
 locale unpackage en-US jar:chrome/unpackage.jar!/locale/en-US/
 
-overlay chrome://browser/content/browser.xul chrome://unpackage/content/unpackage-overlay.xul
-resource unpackage modules/
+overlay chrome://firebug/content/firebugOverlay.xul chrome://unpackage/content/unpackage.xul

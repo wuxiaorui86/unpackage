@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="chrome://unpackage/skin/overlay.css" type="text/css"?>
+<!--<!DOCTYPE overlay SYSTEM "chrome://unpackage/locale/overlay.dtd">-->
+<overlay id="unpackage-overlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+    <stringbundleset id="stringbundleset">
+        <stringbundle id="unpackage-strings" src="chrome://unpackage/locale/overlay.properties"/>
+    </stringbundleset>
+
+    <toolbar id="fbToolbar" align="center">
+        <hbox id="fbToolbarInner" insertbefore="fbDetachButton" flex="1" align="center">
+            <hbox id="fbUnpackageButtons" insertafter="fbNetButtons" collapsed="true">
+                <toolbarbutton id="unpackage_panel_refresh" label="unpackage.refresh.label" tooltiptext="unpackage.refresh.tip" />
+
+                <toolbarseparator class="fbPanelSpecificButtonsSeparator"/>
+                <toolbarbutton id="unpackage_panel_dashboard" label="unpackage.dashboard.label" group="firebugUnpackageFilter" type="radio" checked="true" />
+                <toolbarbutton id="unpackage_panel_switch" label="unpackage.switch.label" group="firebugUnpackageFilter" type="radio" />
+                <toolbarbutton id="unpackage_panel_split" label="unpackage.split.label" group="firebugUnpackageFilter" type="radio" />
+                <toolbarbutton id="unpackage_panel_build" label="unpackage.build.label" group="firebugUnpackageFilter" type="radio" />
+
+                <toolbarseparator class="fbPanelSpecificButtonsSeparator"/>
+                <toolbarbutton id="unpackage_panel_tools" type="menu" label="unpackage.tools.label">
+                    <menupopup>
+                        <menuitem id="unpackage_tools_export" command="cmd_exportSetting" label="unpackage.export.label" tooltiptext="unpackage.export.tip" />
+                        <menuitem id="unpackage_tools_import" command="cmd_inportSetting" label="unpackage.import.label" tooltiptext="unpackage.import.tip" />
+                        <menuseparator/>
+                        <menuitem id="unpackage_tools_options" command="cmd_optionsDialog" label="unpackage.options.label" tooltiptext="unpackage.options.tip" />
+                        <menuitem id="unpackage_tools_help" command="cmd_help" label="unpackage.help.label" tooltiptext="unpackage.help.tip" />
+                        <menuitem id="unpackage_tools_about" command="cmd_about" label="unpackage.about.label" />
+                    </menupopup>
+                </toolbarbutton>
+            </hbox>
+        </hbox>
+    </toolbar>
+    <!--include script files-->
+    <script src="unpackage.js" type="application/x-javascript"/>
+</overlay>
