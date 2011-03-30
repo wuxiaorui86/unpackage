@@ -30,7 +30,7 @@ FBL.ns(function() {with(FBL){
             return {label:this.str(label),nol10n:true,type:'checkbox',checked:value,command:bindFixed(this.setPref,this,option,!value)};
         }
     };
-    /*ovservers*/
+    /*observers*/
     var SwitchObserver,SplitObserver,UnpackObserver,HttpObserver;
     HttpObserver = {
 
@@ -47,7 +47,10 @@ FBL.ns(function() {with(FBL){
     /*rep*/
     var Templates = {
         Dashboard:domplate(Firebug.Rep,new Firebug.Listener(),{
-                
+            tag: DIV({style: "padding-left: 20px"},
+                    H2("DashBaord"),
+                    SPAN("Now activated!")
+                )
         }),
         Test:domplate(Firebug.Rep,{
             tag: DIV({style: "padding-left: 20px"},
@@ -62,9 +65,9 @@ FBL.ns(function() {with(FBL){
         },
         initialize:function(){
             Firebug.ActivableModule.initialize.apply(this, arguments);
-
-            if (FBTrace.DBG_UNPACKAGE)
+            if (FBTrace.DBG_UNPACKAGE) {
                 FBTrace.sysout("ActivableModule.initialize;");
+            };
         },
         internationalizeUI:function(doc){
             var elements = [
@@ -87,20 +90,20 @@ FBL.ns(function() {with(FBL){
         shutdown: function(){
             Firebug.ActivableModule..shutdown.apply(this, arguments);
 
-            if (FBTrace.DBG_UNPACKAGE)
+            if (FBTrace.DBG_UNPACKAGE) {
                 FBTrace.sysout("ActivableModule.shutdown;");
+            };
         },
         onAction: function(){
             alert("Hello from my activable panel!");
         },
         onObserverChange: function(observer){
-            if (FBTrace.DBG_UNPACKAGE)
+            if (FBTrace.DBG_UNPACKAGE) {
                 FBTrace.sysout("ActivableModule.onObserverChange;");
-
+            };
             if (this.hasObservers()){
 
             } else {
-                // There are no observer using this model, let's clean up registered hooks.
             }
         },
         onSuspendFirebug: function(context){
@@ -170,7 +173,7 @@ FBL.ns(function() {with(FBL){
     /*register*/
     if (Firebug.registerStringBundle){
         Firebug.registerStringBundle("chrome://unpackage/locale/overlay.properties");
-    }
+    };
     /*Firbug.registerRep(Templates.Dashboard,Templates.Test);*/
     Firebug.registerActivableModule(Firebug.Unpackage);
     Firebug.registerPanel(Firebug.UnpackagePanel);

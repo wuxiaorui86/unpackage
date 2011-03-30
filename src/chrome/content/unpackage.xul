@@ -17,7 +17,7 @@
                 <toolbarbutton id="unpackage_panel_split" label="unpackage.split.label" group="firebugUnpackageFilter" type="radio" />
                 <toolbarbutton id="unpackage_panel_build" label="unpackage.build.label" group="firebugUnpackageFilter" type="radio" />
 
-                <toolbarseparator class="fbPanelSpecificButtonsSeparator"/>
+                <!--<toolbarseparator class="fbPanelSpecificButtonsSeparator"/>
                 <toolbarbutton id="unpackage_panel_tools" type="menu" label="unpackage.tools.label">
                     <menupopup>
                         <menuitem id="unpackage_tools_export" command="cmd_exportSetting" label="unpackage.export.label" tooltiptext="unpackage.export.tip" />
@@ -27,7 +27,7 @@
                         <menuitem id="unpackage_tools_help" command="cmd_help" label="unpackage.help.label" tooltiptext="unpackage.help.tip" />
                         <menuitem id="unpackage_tools_about" command="cmd_about" label="unpackage.about.label" />
                     </menupopup>
-                </toolbarbutton>
+                </toolbarbutton>-->
             </hbox>
         </hbox>
     </toolbar>
