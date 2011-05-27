@@ -25,7 +25,7 @@ class Handlers
 	//	return oS.oRequest.headers.HTTPMethod; else return String.Empty;
 	//}
 	public static RulesOption("Enable Unpacker")
-	var m_unpacker: boolean = true;
+	var m_unpacker: boolean = false;
 
 	public static RulesOption("Hide 304s")
 	var m_Hide304s: boolean = false;
