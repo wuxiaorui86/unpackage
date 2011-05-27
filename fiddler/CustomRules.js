@@ -122,35 +122,6 @@ class Handlers
 //			oSession.oFlags["x-breakrequest"] = "yup";	// Existence of the x-breakrequest flag creates a breakpoint; the "yup" value is unimportant.
 //		}
 
-
-		
-        /*if (m_unpacker) {
-			var isCDNHost = /assets.daily.taobao.net|a.tbcdn.cn|assets.taobaocdn.cn/i.test(oSession.hostname),
-				isStaticResource = oSession.uriContains(".css") || oSession.uriContains(".js"),
-				isConcat = false, envPath, filePaths, timeStamp, len, i = 0,
-				requestStr ,tempArr = [];
-
-			if (isCDNHost && isStaticResource) {
-				isConcat = oSession.uriContains("/??");
-				if(isConcat) {
-					envPath = oSession.url.split("??")[0];
-					filePaths = oSession.url.split("??")[1].split(",");
-					len = filePaths.length;
-					for (;i < len;i++) {
-						requestStr = "GET http://" + envPath + filePaths[i] + " HTTP/1.0\r\n\r\n";
-						tempArr.push(requestStr);
-						try {	
-							FiddlerObject.utilIssueRequest(requestStr);
-							MessageBox.Show(requestStr);
-						} catch(e){
-							MessageBox.Show("send failed" + e.ToString());
-						}
-					}
-					oSession['oUnpack'] = tempArr.join("::");
-				}
-			}
-        }*/
-
 		if ((null != gs_ReplaceToken) && (oSession.url.indexOf(gs_ReplaceToken)>-1)){   // Case sensitive
 			oSession.url = oSession.url.Replace(gs_ReplaceToken, gs_ReplaceTokenWith); 
 		}
@@ -235,17 +206,8 @@ class Handlers
 			oSession["x-breakresponse"]="uri";
 		}	
 
-
-		/*if (m_unpacker && unpackList) {
-			unpackList = unpackList.split("::");
-			if(unpackList[0]) {
-				oSession.oRequest.FailSession(302, "Redirect", "Fiddler Unpacked the concated file");				
-			}
-		}*/
-		
 		if (m_unpacker && oSession.oResponse.headers.ExistsAndContains("Content-Type", "html")) {
 			oSession.utilDecodeResponse();
-			//System.Text.Encoding.
 
 			var oBody = System.Text.Encoding.Default.GetString(oSession.responseBodyBytes),
 				oRegScript = /<script.*?src="http:\/\/(assets.daily.taobao.net|a.tbcdn.cn|assets.taobaocdn.cn)(.*?)\/\?\?(.*?)".*?><\/script>/gi,
