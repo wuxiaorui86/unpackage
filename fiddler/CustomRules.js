@@ -184,8 +184,6 @@ class Handlers
 	}
 
 	static function OnBeforeResponse(oSession: Session) {	
-		/*var unpackList = oSession['oUnpack'], i = 0, len;*/
-	
 		if (m_ShowTimestamp){
 			oSession["ui-customcolumn"] = DateTime.Now.ToString("H:mm:ss.ffff") + " " + oSession["ui-customcolumn"]; 
 		}
