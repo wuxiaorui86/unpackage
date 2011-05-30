@@ -1,5 +1,6 @@
 ## Guide
 - get class
+
     <?php 
         include('Unpackaged.class.php');
         $hosts = $_SERVER['SERVER_ADDR'];
@@ -8,4 +9,5 @@
         $stamp = $assets->getStamp();
     ?>
 - load
+
     <?php $assets->load('dist-combo-min.js'); ?>
