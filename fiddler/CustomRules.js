@@ -211,17 +211,23 @@ class Handlers
 				oRegScript = /<script.*?src="http:\/\/(assets.daily.taobao.net|a.tbcdn.cn|assets.taobaocdn.cn)(.*?)\/\?\?(.*?)".*?><\/script>/gi,
 				oRegStyle = /<link.*?href="http:\/\/(assets.daily.taobao.net|a.tbcdn.cn|assets.taobaocdn.cn)(.*?)\/\?\?(.*?)".*?\/?>/gi,
 				oRegSrc = /(href|src)="http:\/\/(.*?)\/\?\?(.*?)"/i,
+                oRegCharset = /charset="(.*?)"/i,
 				arrScript = oBody.match(oRegScript) || [], arrStyle = oBody.match(oRegStyle) || [], arrTwist = arrScript.concat(arrStyle);
 			
 			var serialize = function(s){
-				var arr = oRegSrc.exec(s),arrFiles = [], arrSnippet = [],
+                var arr = s.match(oRegSrc),arrFiles = [], arrSnippet = [], 
+                    arrCharset = s.match(oRegCharset),str,
 					path = 'http://' + arr[2] + '/',
-					template = arr[1] === 'src' ? '<script type="text/javascript" src="{src}"></script>' : '<link rel="stylesheet" type="text/css" href="{src}" />';
+					template = arr[1] === 'src' ? '<script type="text/javascript" src="{src}" {charset}></script>' : '<link rel="stylesheet" type="text/css" href="{src}" {charset} />';
 				
 				arrFiles = arr[3] ? arr[3].split(',') : [];
 					
 				for(var j = 0; j < arrFiles.length; j++) {
-					arrFiles[j] && arrSnippet.push(template.substr(0).replace('{src}',path + arrFiles[j]));			
+                    if (arrFiles[j]) {
+                        str = template.substr(0).replace('{src}',path + arrFiles[j]);
+                        str = str.substr(0).replace('{charset}',arrCharset && arrCharset[1] ? 'charset="' + arrCharset[1] + '"' : '');
+                        arrFiles[j] && arrSnippet.push(str);			
+                    }
 				}
 				oBody = oBody.replace(s, arrSnippet.join('\r\n'));					
 			};
