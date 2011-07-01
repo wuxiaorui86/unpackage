@@ -207,7 +207,7 @@ class Handlers
 		if (m_unpacker && oSession.oResponse.headers.ExistsAndContains("Content-Type", "html")) {
 			oSession.utilDecodeResponse();
 
-			var oBody = System.Text.Encoding.Default.GetString(oSession.responseBodyBytes),
+            var oBody = oSession.GetResponseBodyEncoding() == 'System.Text.UTF8Encoding' ? System.Text.Encoding.UTF8.GetString(oSession.responseBodyBytes) : System.Text.Encoding.Default.GetString(oSession.responseBodyBytes),
 				oRegScript = /<script.*?src="http:\/\/(assets.daily.taobao.net|a.tbcdn.cn|assets.taobaocdn.cn)(.*?)\/\?\?(.*?)".*?><\/script>/gi,
 				oRegStyle = /<link.*?href="http:\/\/(assets.daily.taobao.net|a.tbcdn.cn|assets.taobaocdn.cn)(.*?)\/\?\?(.*?)".*?\/?>/gi,
 				oRegSrc = /(href|src)="http:\/\/(.*?)\/\?\?(.*?)"/i,
