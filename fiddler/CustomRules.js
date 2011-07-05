@@ -25,7 +25,7 @@ class Handlers
 	//	return oS.oRequest.headers.HTTPMethod; else return String.Empty;
 	//}
 	public static RulesOption("Enable Unpacker")
-	var m_unpacker: boolean = false;
+	var m_Unpacker: boolean = false;
 
 	public static RulesOption("Hide 304s")
 	var m_Hide304s: boolean = false;
@@ -204,17 +204,14 @@ class Handlers
 			oSession["x-breakresponse"]="uri";
 		}	
 
-		if (m_unpacker && oSession.oResponse.headers.ExistsAndContains("Content-Type", "html")) {
+		if (m_Unpacker && oSession.oResponse.headers.ExistsAndContains("Content-Type", "html")) {
 			oSession.utilDecodeResponse();
-
-            var oBody = oSession.GetResponseBodyEncoding() == 'System.Text.UTF8Encoding' ? System.Text.Encoding.UTF8.GetString(oSession.responseBodyBytes) : System.Text.Encoding.Default.GetString(oSession.responseBodyBytes),
-				oRegScript = /<script.*?src="http:\/\/(assets.daily.taobao.net|a.tbcdn.cn|assets.taobaocdn.cn)(.*?)\/\?\?(.*?)".*?><\/script>/gi,
-				oRegStyle = /<link.*?href="http:\/\/(assets.daily.taobao.net|a.tbcdn.cn|assets.taobaocdn.cn)(.*?)\/\?\?(.*?)".*?\/?>/gi,
-				oRegSrc = /(href|src)="http:\/\/(.*?)\/\?\?(.*?)"/i,
-                oRegCharset = /charset="(.*?)"/i,
-				arrScript = oBody.match(oRegScript) || [], arrStyle = oBody.match(oRegStyle) || [], arrTwist = arrScript.concat(arrStyle);
+			var oBody = oSession.GetResponseBodyEncoding() == 'System.Text.UTF8Encoding' ? System.Text.Encoding.UTF8.GetString(oSession.responseBodyBytes) : System.Text.Encoding.Default.GetString(oSession.responseBodyBytes),
+				oRegSnippet = /<(link|script).*?(src|href)="http:\/\/(assets.daily.taobao.net|a.tbcdn.cn|assets.taobaocdn.cn)(.*?)\/\?\?(.*?)".*?>/gi,
+				oRegSrc = /(href|src)="http:\/\/(.*?)\/\?\?(.*?)"/i,oRegCharset = /charset="(.*?)"/i,
+				arrTwist = oBody.match(oRegSnippet) || [];
 			
-			var serialize = function(s){
+			var replacer = function(s){
                 var arr = s.match(oRegSrc),arrFiles = [], arrSnippet = [], 
                     arrCharset = s.match(oRegCharset),str,
 					path = 'http://' + arr[2] + '/',
@@ -229,11 +226,11 @@ class Handlers
                         arrFiles[j] && arrSnippet.push(str);			
                     }
 				}
-				oBody = oBody.replace(s, arrSnippet.join('\r\n'));					
+				oBody = oBody.replace(s, '\r\n<!--Fiddler Unpacker Enabled START-->\r\n' + arrSnippet.join('\r\n') + '\r\n<!--Fiddler Unpacker Enabled END-->\r\n');					
 			};
 			
 			for (var i = 0;i < arrTwist.length;i++){
-				serialize(arrTwist[i]);
+				replacer(arrTwist[i]);
 			};
 			
 			oSession.utilSetResponseBody(oBody);
@@ -376,5 +373,3 @@ class Handlers
     	}
 	}
 }
-
-
