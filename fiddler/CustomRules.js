@@ -211,7 +211,7 @@ class Handlers {
 			var oBody = oSession.GetResponseBodyEncoding() == 'System.Text.UTF8Encoding' ?
 				System.Text.Encoding.UTF8.GetString(oSession.responseBodyBytes) :
 				System.Text.Encoding.Default.GetString(oSession.responseBodyBytes),
-			oRegSnippet = /<(link|script).*?(src|href)="http:\/\/(assets.daily.taobao.net|a.tbcdn.cn|l.tbcdn.cn)(.*?)\/\?\?(.*?)".*?>/gi,
+			oRegSnippet = /<(link|script).*?(src|href)="http:\/\/(assets.daily.taobao.net|a.tbcdn.cn|l.tbcdn.cn)(.*?)\/\?\?(.*?)".*?>(<\/script>)?/gi,
 			oRegSrc = /(href|src)="http:\/\/(.*?)\/\?\?(.*?)"/i,
 			oRegCharset = /charset="(.*?)"/i,
 			arrTwist = oBody.match(oRegSnippet) || [];
